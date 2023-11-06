@@ -1,3 +1,5 @@
+//No pacote controller é onde os dados da aplicação serão inseridos e processados.
+
 package com.projetofinal.backend.controllers;
 
 import java.util.List;

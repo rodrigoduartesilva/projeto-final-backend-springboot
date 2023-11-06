@@ -1,3 +1,5 @@
+//No pacote "entities" é onde serão criadas as classes que representam as entidades do banco de dados.
+
 package com.projetofinal.backend.entities;
 
 import jakarta.persistence.Entity;
@@ -5,17 +7,22 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+//As annotations do Spring JPA (marcadas pelo sinal de @) servem para fazer a ligação entre a classe e a 
+//tabela do banco de dados. É importante lembrar que a classe e a tabela terão o mesmo nome.
+
+@Entity //Informa que essa classe será uma entidade do banco de dados.
 public class Funcionario {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String nome;
-	private String email;
-	private String senha;
-	private String setor;
+	@Id //serve para identificar a chave primaria
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //gera uma iteração no id, evitando que estes sejam repetidos.
+	private Integer id; //Atributo id
+	private String nome; //Atributo nome
+	private String email; //Atributo email
+	private String senha; //Atributo senha
+	private String setor; //Atributo setor
 	
+	//para garantir a compatibilidade do sistema e facilitar a manipulação dos objetos, 
+	//o Hibernate tem como requisito, criar um construtor vazio.
 	public Funcionario() {}
 
 	public Funcionario(Integer id, String nome, String email, String senha, String setor) {
@@ -26,6 +33,8 @@ public class Funcionario {
 		this.setor = setor;
 	}
 
+	
+	//Criação dos getters and setters
 	public Integer getId() {
 		return id;
 	}
